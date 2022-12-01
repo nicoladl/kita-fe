@@ -6,13 +6,13 @@ const App = () => {
     const [name, setName] = useState('');
 
     useEffect(async () => {
-        const families = await fetchFamilies()
-        setFamilies(families)
+        setFamilies(await fetchFamilies())
     }, [])
 
-    const addFamily = e => {
+    const addFamily = async e => {
         e.preventDefault()
-        postFamilies({ name })
+        await postFamilies({ name })
+        setFamilies(await fetchFamilies())
     }
 
 
