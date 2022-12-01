@@ -10,7 +10,6 @@ const options = {
 export const fetchFamilies = async () => {
     return await fetch(`${baseUrl}/families`)
         .then(res => res.json())
-        .then(res => res.data)
 }
 
 export const postFamilies = async payload => {

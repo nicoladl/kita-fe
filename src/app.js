@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import {fetchFamilies, postFamilies} from "./http";
 
 const App = () => {
-    const [families, setFamilies] = useState([])
+    const [families, setFamilies] = useState({
+        byId: {},
+        allIds: []
+    })
     const [name, setName] = useState('');
 
     useEffect(async () => {
@@ -20,8 +23,8 @@ const App = () => {
         <>
             <h1>families</h1>
             {
-                families.map(family => (
-                    <p>{family.name}</p>
+                families.allIds.map(familyId => (
+                    <p>{families.byId[familyId].name}</p>
                 ))
             }
 
